@@ -24,15 +24,21 @@ Through the musig interface of sr25519, the aggregation signature is realized un
 Address privacy, contract privacy, such as decentralized contract market value management, or privacy oracle.
 
 ## Business scenario 1:
-    A project party A, A has M investors, the project party has N board members, and the N board members of the project party A need to sign multiple off-chain (in order to ensure the privacy of the board members of the project party) to make M investments People release tokens in accordance with the contract,
-    But it is necessary to ensure the privacy of contracts for M investors, because all these data are disclosed on the chain, which will cause the market-making team to master the laws and go short and long, and control to disrupt the market.
-    In the above, both trust and privacy must be guaranteed.
-    Let's give a well-understood number: For example, N=3, M=10.
-    Step 1: The three board members use the off-chain threshold signature to call generate_address() to generate the threshold address. The signature address of the board member under this address is private.
-    Step 2: Fix the Mast contract under the chain, which is the Script script. Script = Account: ** (one of M) + Call: transfer + Values: Amount (the number of tokens occupied by the investor) + Time Lock: (lower, 0) Start execution when the lower block is high.
-    Step 3: Board members off-chain call musig to aggregate signature voting and upload each privacy contract script hash, pass_script(script hash). And the board members passed the privacy scripts to M investors one by one through ComingChat's private communication channel.
-    Step 4: After the investment reaches a fixed block height, the operation publishes its own script and calls the execute_script(script) contract.
-    Thus, the privacy of the contract is realized within a certain period of time. It avoids malicious market makers in the market from maliciously controlling the price of the currency, and also avoids the trust problem of the centralized issuance of tokens between investors and project parties.
+A project party A, A has M investors, the project party has N board members, and the N board members of the project party A need to sign multiple off-chain (in order to ensure the privacy of the board members of the project party) to make M investments People release tokens in accordance with the contract, But it is necessary to ensure the privacy of contracts for M investors, because all these data are disclosed on the chain, which will cause the market-making team to master the laws and go short and long, and control to disrupt the market.
+
+In the above, both trust and privacy must be guaranteed. 
+
+Let's give a well-understood number: For example, N=3, M=10.
+
+Step 1: The three board members use the off-chain threshold signature to call generate_address() to generate the threshold address. The signature address of the board member under this address is private.
+
+Step 2: Fix the Mast contract under the chain, which is the Script script. Script = Account: ** (one of M) + Call: transfer + Values: Amount (the number of tokens occupied by the investor) + Time Lock: (lower, 0) Start execution when the lower block is high.
+
+Step 3: Board members off-chain call musig to aggregate signature voting and upload each privacy contract script hash, pass_script(script hash). And the board members passed the privacy scripts to M investors one by one through ComingChat's private communication channel.
+
+Step 4: After the investment reaches a fixed block height, the operation publishes its own script and calls the execute_script(script) contract.
+
+Thus, the privacy of the contract is realized within a certain period of time. It avoids malicious market makers in the market from maliciously controlling the price of the currency, and also avoids the trust problem of the centralized issuance of tokens between investors and project parties.
     
     
 ## 简介
