@@ -40,7 +40,11 @@ Step 4: After the investment reaches a fixed block height, the operation publish
 
 Thus, the privacy of the contract is realized within a certain period of time. It avoids malicious market makers in the market from maliciously controlling the price of the currency, and also avoids the trust problem of the centralized issuance of tokens between investors and project parties.
     
-    
+## Business scenario 2: (Anonymous voting system) 
+ Polkadot, ChainX and other council members have privacy in voting on the master proposal, and solve the problem: because council members' voting may affect the interests of some people and cause public attacks.
+ Now using the threshold wallet contract to vote, everyone can vote anonymously, only knowing whether the members of the parliament voted has been reached or not, but it is impossible to know which members of the parliament voted for and who voted against.
+ 
+ 
 ## 简介
    借鉴于BTC的taproot实现， taproot 由两部分组成（聚合签名 + MAST合约）。 
    taproot可以实现 地址隐私 和合约的隐私。 我们结合taproot的理论在Substrate框架下实现交易的隐私。
@@ -66,7 +70,7 @@ Thus, the privacy of the contract is realized within a certain period of time. I
 ## 适合业务场景：
    地址隐私，合约隐私， 比如 去中心合约市值管理，或者隐私预言机。
 
-## 业务场景1
+## 业务场景1：（众筹代币分发系统的隐私）
     某项目方A， A的投资人有M个, 项目方有N个董事会成员， 项目方A中的N个董事会成员要通过链下多签（为了保证项目方董事会成员的隐私）给M个投资人按照合约释放token，
     但又要保证给M个投资人的合约隐私， 因为这些数据全公开到链上， 会导致做市团队掌握规律做空做多，控制扰乱市场。
     在上面这个既要保证 信任，又要保证隐私。
@@ -77,5 +81,9 @@ Thus, the privacy of the contract is realized within a certain period of time. I
     第4步： 投资到了固定块高后， 操作公布自己的脚本，调用execute_script(script) 合约。
     从而在一定时间内实现了合约的隐私。 避免了 市场上的恶意做市商 恶意控制币价，也避免了投资人和项目方之间代币中心化发放的信任问题。
     
+## 业务场景2：（匿名投票系统）
+   Polkadot， ChainX 等议会成员  对明主提案投票的隐私， 解决问题： 因为议会成员投票有可能影响某部分人的利益， 导致民众的攻击。 
+   现在用门限钱包合约投票，可以匿名所有人投票， 只知道议会成员投票达成了或者不达成， 但不能知道具体是哪些议会成员投了赞成票， 哪些人投了反对票。
+
     
      
